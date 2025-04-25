@@ -12,8 +12,11 @@
   <h1>أهلاً بك في لعبة Osos!</h1>
   <button id="start-game">ابدأ اللعبة</button>
 
+  <!-- مشهد اللعبة سيتم عرضه هنا بعد الضغط على الزر -->
   <div id="game-container" style="display:none;">
     <h2>مرحبًا بك في عالم Osos! استمتع باللعب!</h2>
+    <p>هنا يمكنك إضافة المزيد من التفاصيل حول اللعبة.</p>
+    <!-- يمكنك إضافة المزيد من العناصر التفاعلية هنا. -->
   </div>
 
   <div id="message"></div> <!-- مكان لعرض الرسائل -->
@@ -34,8 +37,8 @@
       document.getElementById('message').innerHTML = '<p>تم الضغط على زر "ابدأ اللعبة"!</p>';
 
       // إخفاء الزر وعرض مشهد اللعبة
-      document.getElementById('start-game').style.display = 'none';
-      document.getElementById('game-container').style.display = 'block';
+      document.getElementById('start-game').style.display = 'none';  // إخفاء الزر
+      document.getElementById('game-container').style.display = 'block';  // عرض مشهد اللعبة
 
       // عرض رسالة بعد بدء اللعبة
       document.getElementById('message').innerHTML += '<p>تم بدء اللعبة!</p>';
