@@ -12,6 +12,12 @@
   <h1>أهلاً بك في لعبة Osos!</h1>
   <button id="start-game">ابدأ اللعبة</button>
 
+  <div id="game-container" style="display:none;">
+    <!-- يمكنك إضافة هنا مشهد اللعبة أو أي عناصر تظهر عندما تبدأ اللعبة -->
+    <h2>مرحبًا بك في عالم Osos! استمتع باللعب!</h2>
+    <!-- هنا يمكن أن تضع المزيد من العناصر الخاصة باللعبة -->
+  </div>
+
   <script>
     // تسجيل الـ Service Worker
     if ('serviceWorker' in navigator) {
@@ -25,6 +31,9 @@
     // إضافة وظيفة للزر
     document.getElementById('start-game').addEventListener('click', () => {
       alert('تم بدء اللعبة!');
+      // بعد الضغط على الزر، إخفاء الزر وعرض مشهد اللعبة
+      document.getElementById('start-game').style.display = 'none'; // إخفاء الزر
+      document.getElementById('game-container').style.display = 'block'; // إظهار مشهد اللعبة
     });
   </script>
 </body>
