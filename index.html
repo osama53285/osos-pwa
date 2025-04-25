@@ -12,9 +12,19 @@
 
   <div id="game-container" style="display:none;">
     <p id="game-status">استكشف العالم وواجه الأعداء!</p>
-    <div id="player"></div>
+    <div id="player">
+      <img src="assets/player.png" alt="Player Character" id="player-img">
+    </div>
     <button id="fight-enemy">حارب العدو</button>
+    <div id="enemy">
+      <img src="assets/enemy.png" alt="Enemy Character" id="enemy-img">
+    </div>
+    <div id="item">
+      <img src="assets/item.png" alt="Item" id="item-img">
+    </div>
   </div>
+
+  <audio id="attack-sound" src="assets/attack-sound.mp3" preload="auto"></audio>
 
   <script src="game.js"></script>
 </body>
