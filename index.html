@@ -3,32 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Osos PWA</title>
-  <link rel="manifest" href="manifest.json">
-  <style>
-    body { margin:0; display:flex; align-items:center; justify-content:center; height:100vh; background:#111; color:#fff; font-family:sans-serif; }
-    #game { text-align:center; }
-    button { padding:1em 2em; font-size:1em; }
-  </style>
+  <title>لعبة Osos</title>
+  <link rel="manifest" href="manifest.json"> <!-- ربط ملف الـ manifest -->
+  <link rel="stylesheet" href="style.css"> <!-- إذا كان لديك ملف CSS -->
 </head>
 <body>
-  <div id="game">
-    <h1>Osos (PWA Demo)</h1>
-    <p>اضغط ابدأ لدخول عالم Osos</p>
-    <button id="start">ابدأ</button>
-  </div>
+
+  <h1>أهلاً بك في لعبة Osos!</h1>
+  <button id="start-game">ابدأ اللعبة</button>
+
   <script>
-    document.getElementById('start').onclick = () => {
-      let code = prompt('أدخل كود GM (OsamaNasr):');
-      if(code === 'OsamaNasr') {
-        alert('تم تفعيل وضع GM!');
-      } else {
-        alert('تلعب كلاعب عادي.');
-      }
-    };
-    if('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
+    // تسجيل الـ Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker تم تسجيله بنجاح:', reg))
+          .catch(err => console.log('فشل تسجيل Service Worker:', err));
+      });
     }
+
+    // إضافة وظيفة للزر
+    document.getElementById('start-game').addEventListener('click', () => {
+      alert('تم بدء اللعبة!');
+    });
   </script>
 </body>
 </html>
