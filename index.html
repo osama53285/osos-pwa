@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>لعبة Osos</title>
-  <link rel="manifest" href="manifest.json"> <!-- ربط ملف الـ manifest -->
-  <link rel="stylesheet" href="style.css"> <!-- إذا كان لديك ملف CSS -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -13,27 +13,32 @@
   <button id="start-game">ابدأ اللعبة</button>
 
   <div id="game-container" style="display:none;">
-    <!-- يمكنك إضافة هنا مشهد اللعبة أو أي عناصر تظهر عندما تبدأ اللعبة -->
     <h2>مرحبًا بك في عالم Osos! استمتع باللعب!</h2>
-    <!-- هنا يمكن أن تضع المزيد من العناصر الخاصة باللعبة -->
   </div>
 
+  <div id="message"></div> <!-- مكان لعرض الرسائل -->
+
   <script>
-    // تسجيل الـ Service Worker
+    // التحقق من تسجيل الـ Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
-          .then(reg => console.log('Service Worker تم تسجيله بنجاح:', reg))
-          .catch(err => console.log('فشل تسجيل Service Worker:', err));
+          .then(reg => console.log('تم تسجيل الـ Service Worker بنجاح:', reg))
+          .catch(err => console.log('فشل تسجيل الـ Service Worker:', err));
       });
     }
 
     // إضافة وظيفة للزر
     document.getElementById('start-game').addEventListener('click', () => {
-      alert('تم بدء اللعبة!');
-      // بعد الضغط على الزر، إخفاء الزر وعرض مشهد اللعبة
-      document.getElementById('start-game').style.display = 'none'; // إخفاء الزر
-      document.getElementById('game-container').style.display = 'block'; // إظهار مشهد اللعبة
+      // عرض رسالة على الصفحة بدلاً من `console.log`
+      document.getElementById('message').innerHTML = '<p>تم الضغط على زر "ابدأ اللعبة"!</p>';
+
+      // إخفاء الزر وعرض مشهد اللعبة
+      document.getElementById('start-game').style.display = 'none';
+      document.getElementById('game-container').style.display = 'block';
+
+      // عرض رسالة بعد بدء اللعبة
+      document.getElementById('message').innerHTML += '<p>تم بدء اللعبة!</p>';
     });
   </script>
 </body>
